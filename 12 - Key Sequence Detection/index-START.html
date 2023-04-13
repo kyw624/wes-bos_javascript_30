@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Key Detection</title>
-  <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
-  <link rel="icon" href="https://fav.farm/🔥" />
-</head>
-<body>
-<script>
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Key Detection</title>
+    <script
+      type="text/javascript"
+      src="https://www.cornify.com/js/cornify.js"
+    ></script>
+    <link rel="icon" href="https://fav.farm/🔥" />
+  </head>
+  <body>
+    <script>
+      const store = [];
+      const secretCode = 'wesbos';
+
+      const pressKey = (e) => {
+        console.log(e.key);
+
+        store.push(e.key);
+        store.splice(-secretCode - 1, store.length - secretCode.length);
+
+        if (store.join('').includes(secretCode)) {
+          console.log('DING DING!');
+          cornify_add();
+        }
+        console.log(store);
+      };
+
+      window.addEventListener('keyup', pressKey);
+    </script>
+  </body>
 </html>
